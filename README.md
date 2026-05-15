@@ -1,4 +1,4 @@
-# Unify 3 SDK
+# Unify 3 SDK for iOS and macOS
 
 This package is for integrating with Unify 3 from Swift applications on iOS and macOS.
 

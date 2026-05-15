@@ -19,13 +19,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Unify3Sdk",
-            url: "https://github.com/KaelusRF/Unify3Sdk-Apple/releases/download/0.1.2/Unify3Sdk-0.1.2.xcframework.zip",
-            checksum: "59729416f722df2b4bc5c08a7f986dd9e324f41f783f9ec426fb5b73a780181b"
+            url: "https://github.com/KaelusRF/Unify3Sdk-Apple/releases/download/0.1.3/Unify3Sdk-0.1.3.xcframework.zip",
+            checksum: "ebeba15141ed724a0abb48d505a19076291a1b37d2af2a7f3ef7fdff12bd79ea"
         ),
         .binaryTarget(
             name: "Unify3Core",
-            url: "https://github.com/KaelusRF/Unify3Sdk-Apple/releases/download/0.1.2/Unify3Core-0.1.2.xcframework.zip",
-            checksum: "209634e05cfee426d5469332cbd65674bcdfe4d6c28ae43da0001208e62db834"
+            url: "https://github.com/KaelusRF/Unify3Sdk-Apple/releases/download/0.1.3/Unify3Core-0.1.3.xcframework.zip",
+            checksum: "cfa72f9dd69e3d8bb47a5832ab8e35512408e9b62ea17b9b1cea28e4367098a5"
         )
     ]
 )
