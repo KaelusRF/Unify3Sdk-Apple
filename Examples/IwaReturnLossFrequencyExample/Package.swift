@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "BasicConsole",
+    name: "IwaReturnLossFrequencyExample",
     
     platforms: [
         .macOS(.v15)
@@ -19,7 +19,7 @@ let package = Package(
 
     targets: [
         .executableTarget(
-            name: "BasicConsole",
+            name: "IwaReturnLossFrequencyExample",
             dependencies: [
                 .product(
                     name: "Unify3Sdk",

@@ -22,7 +22,7 @@ let instrument = try await performWithTimeout(of: .seconds(60)) { () -> Instrume
         }
     }
 
-    // Discovery yields snapshots of the instruments the SDK can currently see.
+    // Discovery yields instruments the SDK can currently see.
     // Here we pick the first iWA so we have something concrete to connect to.
     for try await instruments in unify.runInstrumentDiscovery() {
         if let iwa = instruments.first(where: { $0.type == .iwa }) {
@@ -111,7 +111,6 @@ func performWithTimeout<T: Sendable>(
     }
 }
 
-// Keep the failure cases local so each stage of the flow is easy to read.
 enum UnifyError: Error {
     case connectionFailed(reason: String)
     case instrumentNotFound
