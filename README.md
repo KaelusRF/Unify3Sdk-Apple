@@ -8,6 +8,12 @@ API documentation and integration guides are published at:
 
 <https://kaelusrf.github.io/Unify3Sdk-Apple/documentation/unify3sdk>
 
+## Examples
+
+Examples can be found in the repository's Examples directory:
+
+<https://github.com/KaelusRF/Unify3Sdk-Apple/tree/main/Examples>
+
 ## Installation
 
 Add the package dependency in Xcode using the package repository URL, then link the `Unify3Sdk` product in your app target.
