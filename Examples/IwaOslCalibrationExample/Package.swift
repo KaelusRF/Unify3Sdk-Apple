@@ -13,7 +13,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/KaelusRF/Unify3Sdk-Apple.git",
-            from: "0.1.3"
+            from: "0.1.4"
         )
     ],
 

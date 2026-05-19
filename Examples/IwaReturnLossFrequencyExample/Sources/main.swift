@@ -38,8 +38,8 @@ guard let instrument else {
 }
 
 // Connect to the instrument we just discovered.
+print("Connecting to iWA \(instrument.serialNumber)...")
 let connectionResult = try await unify.connectInstrument(serialNumber: instrument.serialNumber)
-
 guard connectionResult == .success else {
     throw UnifyError.connectionFailed(reason: "Result was \(connectionResult)")
 }
@@ -81,8 +81,8 @@ print("Starting test")
 
 // `runTest()` streams progress updates while the instrument executes the configured test.
 for try await progressUpdate in unify.runTest(checkRl: true) {
-    let percentage = progressUpdate.traceProgress
-    print("Progress: \(percentage * 100)%")
+    let percentage = Int((progressUpdate.traceProgress * 100).rounded())
+    print("Progress: \(percentage)%")
 }
 
 print("Test complete!")

@@ -8,7 +8,7 @@ let unify = Unify.shared
 let instrument = try await discoverFirstIwa(using: unify)
 
 // Connect to the instrument we just discovered.
-print("Connecting to iWA \(instrument.serialNumber)")
+print("Connecting to iWA \(instrument.serialNumber)...")
 let connectionResult = try await unify.connectInstrument(serialNumber: instrument.serialNumber)
 guard connectionResult == .success else {
   throw UnifyError.connectionFailed(reason: "Result was \(connectionResult)")
@@ -75,10 +75,8 @@ else {
 }
 
 print(
-  "Calibration configured across \(Int(calibration.frequencyRangeHz.start)) Hz to \(Int(calibration.frequencyRangeHz.end)) Hz."
+  "Calibration configured for \(Int(calibration.frequencyRangeHz.start)) Hz to \(Int(calibration.frequencyRangeHz.end)) Hz."
 )
-print("Press Enter when you are ready to start the calibration.")
-_ = readLine()
 
 // `runCalibration()` streams the current calibration state. Each update tells us
 // which step is ready, which steps are already complete, and what instruction
