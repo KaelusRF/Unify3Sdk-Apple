@@ -4,6 +4,21 @@ import Unify3Sdk
 // `Unify.shared` is the main entry point for talking to instruments through the SDK.
 let unify = Unify.shared
 
+// Ask to emit logs in the range we care about for this example.
+try unify.setLogLevels(minLevel: .info, maxLevel: .error)
+
+// Read the log stream on a separate task so logging can continue in the
+// background while the rest of the workflow runs.
+let logTask = Task {
+    let formatter = ISO8601DateFormatter()
+    
+    // `getLogs()` is an async stream that yields each log entry as the SDK emits it.
+    for try await log in unify.getLogs() {
+        let timestamp = formatter.string(from: log.time)
+        print("[\(timestamp)|\(log.level)|\(log.logger)] \(log.message)")
+    }
+}
+
 // Start by scanning for nearby instruments and waiting for discovery updates.
 let instrument = try await performWithTimeout(of: .seconds(60)) { () -> Instrument? in
     // `runBluetoothScan()` stays alive while the SDK scan is active, so we keep it in
@@ -11,7 +26,7 @@ let instrument = try await performWithTimeout(of: .seconds(60)) { () -> Instrume
     let bluetoothScanTask = Task {
         try? await unify.runBluetoothScan()
     }
-
+    
     // Stop the scan when discovery finishes.
     // Cancelling the task only stops waiting for `runBluetoothScan()` to return;
     // `stopBluetoothScan()` is what actually tells the SDK to stop scanning.
@@ -21,7 +36,7 @@ let instrument = try await performWithTimeout(of: .seconds(60)) { () -> Instrume
             try? await unify.stopBluetoothScan()
         }
     }
-
+    
     // Discovery yields instruments the SDK can currently see.
     // Here we pick the first iWA so we have something concrete to connect to.
     for try await instruments in unify.runInstrumentDiscovery() {
@@ -29,7 +44,7 @@ let instrument = try await performWithTimeout(of: .seconds(60)) { () -> Instrume
             return iwa
         }
     }
-
+    
     return nil
 }
 
