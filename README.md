@@ -1,10 +1,14 @@
-# Unify 3 SDK for iOS and macOS
+# Unify 3 SDK for iOS
 
-This package is for integrating with Unify 3 from Swift applications on iOS and macOS.
+This package is for integrating with Unify 3 from Swift applications on iOS.
 
 ## Documentation
 
-API documentation and integration guides are published at:
+Getting started guides are published at:
+
+<https://kaelusrf.github.io/Unify3Sdk-Docs>
+
+API reference docs are published at:
 
 <https://kaelusrf.github.io/Unify3Sdk-Apple/documentation/unify3sdk>
 
