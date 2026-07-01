@@ -3,7 +3,6 @@ import SwiftUI
 import Unify3Sdk
 
 let discoveryTimeout: Duration = .seconds(60)
-let batchedResultTimeout: Duration = .seconds(20)
 
 struct ExampleProgress {
   var isVisible = false

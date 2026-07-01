@@ -177,15 +177,7 @@ final class ReturnLossExampleModel: ObservableObject {
             + "(\(traceConfiguration.trace.frequencyRangeHz.start)..\(traceConfiguration.trace.frequencyRangeHz.end) Hz)"
         )
 
-        // Batched results are emitted after the test completes. Start waiting
-        // before runTest() begins so the example does not miss the result.
         let unify = self.unify
-        let batchedResultTask = Task {
-          try await performWithTimeout(of: batchedResultTimeout) {
-            try await unify.getBatchedTestResults().first(where: { _ in true })
-          }
-        }
-
         var lastReportedPercent = -1
         appendStatus("Running test...")
 
@@ -203,7 +195,7 @@ final class ReturnLossExampleModel: ObservableObject {
           }
         }
 
-        guard let result = try await batchedResultTask.value else {
+        guard let result = try await unify.getBatchedTestResults().first(where: { _ in true }) else {
           throw ExampleError.noBatchedResult
         }
 
