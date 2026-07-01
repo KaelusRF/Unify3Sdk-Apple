@@ -14,7 +14,7 @@ API reference docs are published at:
 
 ## Examples
 
-Examples can be found in the repository's Examples directory:
+The `Unify3SdkExample` SwiftUI iOS app can be found in the repository's Examples directory:
 
 <https://github.com/KaelusRF/Unify3Sdk-Apple/tree/main/Examples>
 

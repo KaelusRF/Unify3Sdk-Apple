@@ -1,13 +1,13 @@
 {
-  "originHash" : "89877790b839afb13b726e406177d00bc7a0f673abe5e1df294a135aa09c5f91",
+  "originHash" : "2e2d618d8dee6cb884a285e29a02c4f11292c184a45b9050dbfe687eff0460a3",
   "pins" : [
     {
       "identity" : "unify3sdk-apple",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/KaelusRF/Unify3Sdk-Apple.git",
       "state" : {
-        "revision" : "18a536ec774793a682e1a64234766e3c3af5c526",
-        "version" : "0.1.5"
+        "revision" : "72f88d0eb5df6bbbe712d165e270cc5ca19ea790",
+        "version" : "0.1.6"
       }
     }
   ],
